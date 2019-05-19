@@ -45,10 +45,83 @@ numer_budynku:before{
 
 }
 adres {
+	font-weight: bold;
+	font-size: 100%;
 	margin-top: 3em;
-	padding: 0px 1em;
+	padding: 0px 26px;
 	display: block;
 	background-color: aqua;
 	border: 2px solid #0099ff;
 	margin-bottom: 1em;
   }
+  
+  pracownicy:before {
+	display: block;
+	width: 6em;
+	font-weight: bold;
+	font-size: 100%;
+	content: "Pracownicy";
+	margin: -.75em 0px .25em -.25em;
+	padding: .1em .25em;
+	background-color: purple;
+  }
+pracownicy {
+padding: 0px 1em;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border: 2px solid purple;
+  	text-align: center;
+	background-color: aqua;
+	display: block;
+	margin-bottom: 1em;
+  }
+pracownik:first-of-type imie:before{
+	display: block;
+	font-weight: bold;
+	font-size: 100%;
+	content: "Imie";
+	border-bottom: 1px solid;
+	background-color: lightblue;
+}
+pracownik:first-of-type nazwisko:before{
+	display: block;
+	font-weight: bold;
+	font-size: 100%;
+	content: "Nazwisko";
+	border-bottom: 1px solid;
+	background-color: lightblue;
+}
+pracownik:first-of-type stanowisko:before{
+	display: block;
+	font-weight: bold;
+	font-size: 100%;
+	content: "Stanowisko";
+	border-bottom: 1px solid;
+	background-color: lightblue;
+	
+}
+
+pracownik{
+	display:block;
+	margin: 1px;
+	padding: 3px;
+	
+}
+
+imie, nazwisko, stanowisko{
+	width:20%;
+	display:inline-block;
+	
+	
+ }
+
+
+  
+miejscowosc, ulica, numer_budynku{
+
+display: block;
+	width: 125px;
+	margin-left: auto;
+    margin-right: auto;
+}
+  
