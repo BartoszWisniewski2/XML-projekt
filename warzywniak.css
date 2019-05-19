@@ -24,12 +24,13 @@ adres:before{
 	font-weight: bold;
 	font-size: 100%;
 	content: "Adres";
-	margin: -1.45em 0px .25em -.25em;
+	margin: -1.55em 0px .25em -.25em;
 	padding: .1em .25em;
-	background-color: #0099ff;
+	#background-color: White;
 	margin-left: auto;
     margin-right: auto;
-    text-align: center;
+	text-align: center;
+
 }
 miejscowosc:before{
 	content: "Miasto: ";
@@ -60,7 +61,7 @@ adres {
 	content: "Pracownicy";
 	margin: -1.55em 0px .25em -.25em;
 	padding: .1em .25em;
-	background-color: White;
+	#background-color: White;
 	margin-left: auto;
     margin-right: auto;
 	text-align: center;
@@ -111,6 +112,21 @@ pracownik{
 	
 }
 
+pracownik[plec="K"] nazwisko::after{
+	content: url('oznaczenieKobieta.png');
+}
+pracownik[plec="M"] nazwisko::after{
+	content: url('oznaczenieMezczyzna.png');
+}
+
+
+pracownik[plec="K"] imie:hover{
+	background-color: pink;
+	
+}
+pracownik[plec="M"] imie:hover{
+	background-color: lime;
+	}
 imie, nazwisko, stanowisko{
 	width:20%;
 	display:inline-block;
