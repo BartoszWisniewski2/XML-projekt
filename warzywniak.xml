@@ -32,34 +32,34 @@
 		</pracownicy>
 	</sklep>
 	<produkty>
-		<produkt>
-			<nazwa rodzaj="ow" opakowanie="skrzynka">Jabłka</nazwa>
+		<produkt rodzaj="ow">
+			<nazwa>Jabłka</nazwa>
 			<cena waluta="pln">20</cena>
-			<waga jednostka="kg">20</waga>
+			<waga jednostka="kg" opakowanie="skrzynka">20</waga>
 		</produkt>
 		
-		<produkt>
-			<nazwa rodzaj="ow" opakowanie="karton">Banany</nazwa>
+		<produkt rodzaj="ow">
+			<nazwa>Banany</nazwa>
 			<cena waluta="pln">50</cena>
-			<waga jednostka="kg">10</waga>
+			<waga jednostka="kg" opakowanie="karton">10</waga>
 		</produkt>
 
-		<produkt>
-			<nazwa rodzaj="ow" opakowanie="luzem">Mango</nazwa>
+		<produkt rodzaj="ow">
+			<nazwa>Mango</nazwa>
 			<cena waluta="eur">1</cena>
-			<waga jednostka="szt">1</waga>
+			<waga jednostka="szt" opakowanie="luzem">1</waga>
 		</produkt>
 
-		<produkt>
-			<nazwa rodzaj="wa" opakowanie="luzem">Cebula</nazwa>
+		<produkt rodzaj="wa">
+			<nazwa>Cebula</nazwa>
 			<cena waluta="pln">2</cena>
-			<waga jednostka="szt">1</waga>
+			<waga jednostka="szt" opakowanie="luzem">1</waga>
 		</produkt>
 		
-		<produkt>
-			<nazwa rodzaj="ow" opakowanie="luzem">Borówka</nazwa>
+		<produkt rodzaj="ow">
+			<nazwa >Borówka</nazwa>
 			<cena waluta="pln">1</cena>
-			<waga jednostka="gr">10</waga>
+			<waga jednostka="gr" opakowanie="luzem">10</waga>
 		</produkt>
 		
 		<rodzaj kod="ow">owoc</rodzaj>

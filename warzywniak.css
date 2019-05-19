@@ -9,6 +9,7 @@ sklep:before {
 	padding: .1em .25em;
     text-align: center;
   }
+  
 sklep {
 	display: block;
 	margin: 2em 1em;
@@ -119,14 +120,14 @@ pracownik[plec="M"] nazwisko::after{
 	content: url('oznaczenieMezczyzna.png');
 }
 
-
 pracownik[plec="K"] imie:hover{
 	background-color: pink;
 	
 }
+
 pracownik[plec="M"] imie:hover{
-	background-color: lime;
-	}
+	background-color: blue;
+}
 imie, nazwisko, stanowisko{
 	width:20%;
 	display:inline-block;
@@ -135,13 +136,59 @@ imie, nazwisko, stanowisko{
  }
 
 
-  
-miejscowosc, ulica, numer_budynku{
 
-display: block;
+miejscowosc, numer_budynku, ulica {
+	display: block;
 	width: 125px;
 	margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
   
+produkty:before {
+	display: block;
+	font-weight: bold;
+	font-size: 200%;
+	content: "Produkty";
+	padding: .1em .25em;
+    text-align: center;
+}
+
+produkty {
+	display: block;
+	margin: 2em 1em;
+	border: 4px solid orange;
+	padding: 0px 1em;
+	background-color: white;
+	text-align: center;
+  }
+  
+produkt {
+	display: block;
+	border: 2px dotted;
+	background-color: green;
+	margin: 1em;
+	#padding: 5px;
+}
+produkt nazwa {
+	font-weight: bold;
+}
+produkt cena {
+	color: white;
+}
+produkt cena:after{
+	content: " " attr(waluta) " za ";
+}
+produkt waga:after{
+	content: " "  attr(jednostka) " opakowanie: " attr(opakowanie);
+}
+
+produkt[rodzaj="wa"] nazwa:before{
+	content: "Warzywo: ";
+}
+produkt[rodzaj="ow"] nazwa:before{
+	content: "Owoc: ";
+}
+
+
+
