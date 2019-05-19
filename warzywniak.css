@@ -3,14 +3,11 @@ warzywniak {
 }
 sklep:before {
 	display: block;
-	width: 75px;
 	font-weight: bold;
 	font-size: 200%;
-	content: "Sklep";
+	content: "Sklep z warzywami i owocami";
 	padding: .1em .25em;
-	background-color: #8CDDFA;
-	margin-left: auto;
-    margin-right: auto;
+    text-align: center;
   }
 sklep {
 	display: block;
@@ -52,7 +49,7 @@ adres {
 	display: block;
 	background-color: aqua;
 	border: 2px solid #0099ff;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
   }
   
   pracownicy:before {
@@ -61,7 +58,7 @@ adres {
 	font-weight: bold;
 	font-size: 100%;
 	content: "Pracownicy";
-	margin: -1.45em 0px .25em -.25em;
+	margin: -1.55em 0px .25em -.25em;
 	padding: .1em .25em;
 	background-color: White;
 	margin-left: auto;
