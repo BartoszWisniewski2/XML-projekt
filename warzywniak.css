@@ -1,0 +1,54 @@
+warzywniak {
+	background-color: red;
+}
+sklep:before {
+	display: block;
+	width: 75px;
+	font-weight: bold;
+	font-size: 200%;
+	content: "Sklep";
+	padding: .1em .25em;
+	background-color: #8CDDFA;
+	margin-left: auto;
+    margin-right: auto;
+  }
+lokal {
+	display: block;
+	margin: 2em 1em;
+	border: 4px solid #8CDDFA;
+	padding: 0px 1em;
+	background-color: white;
+  }
+
+adres:before{
+	
+	display: block;
+	width: 75px;
+	font-weight: bold;
+	font-size: 100%;
+	content: "Adres";
+	margin: -1.45em 0px .25em -.25em;
+	padding: .1em .25em;
+	background-color: #0099ff;
+		margin-left: auto;
+    margin-right: auto;
+}
+miejscowosc:before{
+	content: "Miasto: ";
+
+}
+ulica:before{
+	content: "Ulica: ";
+}
+numer_budynku:before{
+	content: "Numer : ";
+
+}
+adres {
+	margin-top: 3em;
+	padding: 0px 1em;
+	display: block;
+	background-color: aqua;
+	border: 2px solid #0099ff;
+	margin-bottom: 1em;
+  }
