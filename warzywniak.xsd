@@ -1,5 +1,26 @@
-﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="warzywniak" type="warzywniakType"/>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="warzywniak" type="warzywniakType">
+  	<xs:keyref name="klucz02" refer="klucz01">
+		<xs:selector xpath="./produkty/produkt" />
+		<xs:field xpath="@rodzaj" />
+	</xs:keyref>
+	
+	<xs:key name="klucz01">
+		<xs:selector xpath="./produkty/rodzaj"/>
+		<xs:field xpath="@kod" />
+	</xs:key>
+	
+	<xs:keyref name="klucz12" refer="klucz11">
+		<xs:selector xpath="./produkty/produkt/waga" />
+		<xs:field xpath="@jednostka" />
+	</xs:keyref>
+	
+	<xs:key name="klucz11">
+		<xs:selector xpath="./produkty/jednostka"/>
+		<xs:field xpath="@kod" />
+	</xs:key>
+  </xs:element>
   
   <xs:complexType name="warzywniakType">
     <xs:sequence>
@@ -34,20 +55,16 @@
     <xs:sequence>
       <xs:element type="daneType" name="dane"/>
     </xs:sequence>
-    <xs:attribute type="xs:string" name="plec" use="required"/>
+    <xs:attribute type="plecType" name="plec" use="required"/>
   </xs:complexType>
-  
   
   <xs:complexType name="daneType">
     <xs:sequence>
-      <xs:element type="xs:string" name="imie"/>
+      <xs:element type="imieType" name="imie"/>
       <xs:element type="xs:string" name="nazwisko"/>
       <xs:element type="xs:string" name="stanowisko"/>
     </xs:sequence>
   </xs:complexType>
-  
-
-
   
   <xs:complexType name="produktyType">
     <xs:sequence>
@@ -56,8 +73,7 @@
       <xs:element type="jednostkaType" name="jednostka" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
-  
+ 
   <xs:complexType name="produktType">
     <xs:sequence>
       <xs:element type="xs:string" name="nazwa"/>
@@ -78,7 +94,7 @@
   
   <xs:complexType name="wagaType">
     <xs:simpleContent>
-      <xs:extension base="xs:int">
+      <xs:extension base="xs:integer">
         <xs:attribute type="xs:string" name="jednostka" use="optional"/>
         <xs:attribute type="xs:string" name="opakowanie" use="optional"/>
       </xs:extension>
@@ -102,6 +118,17 @@
     </xs:simpleContent>
   </xs:complexType>
   
+  <xs:simpleType name="plecType">
+  	<xs:restriction base="xs:string">
+  		<xs:enumeration value="M"/>
+  		<xs:enumeration value="K"/>
+  	</xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="imieType">
+  	<xs:restriction base="xs:string">
+  		<xs:pattern value="[A-Z][a-z]*"/>
+  	</xs:restriction>
+  </xs:simpleType>
 
 
 </xs:schema>
