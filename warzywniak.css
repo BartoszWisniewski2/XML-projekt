@@ -43,6 +43,10 @@ numer_budynku:before{
 	content: "Numer : ";
 
 }
+kod_pocztowy:before{
+	content: "Kod : ";
+
+}
 adres {
 	font-weight: bold;
 	font-size: 100%;
@@ -137,7 +141,7 @@ imie, nazwisko, stanowisko{
 
 
 
-miejscowosc, numer_budynku, ulica {
+miejscowosc, numer_budynku, ulica, kod_pocztowy {
 	display: block;
 	width: 125px;
 	margin-left: auto;
@@ -159,14 +163,14 @@ produkty {
 	margin: 2em 1em;
 	border: 4px solid orange;
 	padding: 0px 1em;
-	background-color: white;
+	background-color: aqua;
 	text-align: center;
   }
   
 produkt {
 	display: block;
 	border: 2px dotted;
-	background-color: green;
+	background-color: 	#FFF8DC;
 	margin: 1em;
 	#padding: 5px;
 }
@@ -174,7 +178,7 @@ produkt nazwa {
 	font-weight: bold;
 }
 produkt cena {
-	color: white;
+	color: red;
 }
 produkt cena:after{
 	content: " " attr(waluta) " za ";
@@ -192,3 +196,6 @@ produkt[rodzaj="ow"] nazwa:before{
 
 
 
+rodzaj, jednostka{
+visibility: hidden;
+}

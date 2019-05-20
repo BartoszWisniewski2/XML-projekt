@@ -1,0 +1,47 @@
+<!ENTITY % osobowe "imie, nazwisko, stanowisko">
+<!ENTITY % adr "miejscowosc, ulica, numer_budynku, kod_pocztowy">
+<!ENTITY % prod "produkt+, rodzaj+, jednostka+">
+
+
+<!ELEMENT warzywniak (sklep+, produkty+)>
+
+
+<!ELEMENT sklep 	(adres, pracownicy)>
+<!ELEMENT produkty 	(%prod)>
+
+<!ELEMENT adres	(%adr;)>
+<!ELEMENT pracownicy (pracownik+)>
+
+<!ATTLIST pracownik plec (K|M) #REQUIRED>
+<!ELEMENT pracownik (dane)>
+<!ELEMENT dane (%osobowe;)>
+
+
+<!ELEMENT produkt	(nazwa, cena, waga)>
+
+
+<!ATTLIST cena waluta (pln|eur) #REQUIRED>
+
+<!ATTLIST waga opakowanie (luzem|skrzynka|karton) #REQUIRED>
+
+
+<!ATTLIST produkt rodzaj IDREF #REQUIRED>
+<!ATTLIST rodzaj   	 kod ID #REQUIRED>
+
+<!ATTLIST waga jednostka IDREF #REQUIRED>
+<!ATTLIST jednostka kod ID #REQUIRED>
+
+<!ELEMENT miejscowosc		(#PCDATA)>
+<!ELEMENT ulica				(#PCDATA)>
+<!ELEMENT numer_budynku		(#PCDATA)>
+<!ELEMENT kod_pocztowy		(#PCDATA)>
+<!ELEMENT imie				(#PCDATA)>
+<!ELEMENT nazwisko			(#PCDATA)>
+<!ELEMENT stanowisko		(#PCDATA)>
+<!ELEMENT nazwa				(#PCDATA)>
+<!ELEMENT cena				(#PCDATA)>	
+<!ELEMENT waga				(#PCDATA)>
+<!ELEMENT rodzaj			(#PCDATA)>
+<!ELEMENT jednostka			(#PCDATA)>
+
+

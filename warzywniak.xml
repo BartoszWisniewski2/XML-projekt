@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="warzywniak.css" ?>
+<!DOCTYPE warzywniak SYSTEM "warzywniak.dtd">
+
 <warzywniak>
 	<sklep>
 		<adres>
 			<miejscowosc>Gdańsk</miejscowosc>
 			<ulica>Gdańska</ulica>
 			<numer_budynku>10</numer_budynku>
+			<kod_pocztowy>80-518</kod_pocztowy>
 		</adres>
 		<pracownicy>
 			<pracownik plec="M">
