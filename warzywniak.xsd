@@ -38,10 +38,10 @@
   
   <xs:complexType name="adresType">
     <xs:sequence>
-      <xs:element type="xs:string" name="miejscowosc"/>
-      <xs:element type="xs:string" name="ulica"/>
+      <xs:element type="wielkaType" name="miejscowosc"/>
+      <xs:element type="wielkaType" name="ulica"/>
       <xs:element type="xs:string" name="numer_budynku"/>
-      <xs:element type="xs:string" name="kod_pocztowy"/>
+      <xs:element type="kodType" name="kod_pocztowy"/>
     </xs:sequence>
   </xs:complexType>
   
@@ -61,8 +61,8 @@
   <xs:complexType name="daneType">
     <xs:sequence>
       <xs:element type="imieType" name="imie"/>
-      <xs:element type="xs:string" name="nazwisko"/>
-      <xs:element type="xs:string" name="stanowisko"/>
+      <xs:element type="nazwiskoType" name="nazwisko"/>
+      <xs:element type="wielkaType" name="stanowisko"/>
     </xs:sequence>
   </xs:complexType>
   
@@ -76,7 +76,7 @@
  
   <xs:complexType name="produktType">
     <xs:sequence>
-      <xs:element type="xs:string" name="nazwa"/>
+      <xs:element type="wielkaType" name="nazwa"/>
       <xs:element type="cenaType" name="cena"/>
       <xs:element type="wagaType" name="waga"/>
     </xs:sequence>
@@ -94,7 +94,7 @@
   
   <xs:complexType name="wagaType">
     <xs:simpleContent>
-      <xs:extension base="xs:integer">
+      <xs:extension base="xs:float">
         <xs:attribute type="xs:string" name="jednostka" use="optional"/>
         <xs:attribute type="xs:string" name="opakowanie" use="optional"/>
       </xs:extension>
@@ -124,9 +124,28 @@
   		<xs:enumeration value="K"/>
   	</xs:restriction>
   </xs:simpleType>
+  
   <xs:simpleType name="imieType">
   	<xs:restriction base="xs:string">
   		<xs:pattern value="[A-Z][a-z]*"/>
+  	</xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="nazwiskoType">
+  	<xs:restriction base="xs:string">
+  		<xs:pattern value="[A-Z][a-z]*"/>
+  	</xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="wielkaType">
+  	<xs:restriction base="xs:string">
+  		<xs:pattern value="[A-Z][\w|\W|\s]*"/>
+  	</xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="kodType">
+  	<xs:restriction base="xs:string">
+  		<xs:pattern value="[0-9][0-9]-?[0-9][0-9][0-9]"/>
   	</xs:restriction>
   </xs:simpleType>
 
