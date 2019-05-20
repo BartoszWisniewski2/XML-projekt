@@ -1,97 +1,107 @@
 ﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="warzywniak">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="sklep">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="adres">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="miejscowosc"/>
-                    <xs:element type="xs:string" name="ulica"/>
-                    <xs:element type="xs:integer" name="numer_budynku"/>
-                    <xs:element type="xs:string" name="kod_pocztowy"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="pracownicy">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="pracownik" maxOccurs="unbounded" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="dane">
-                            <xs:complexType>
-                              <xs:sequence>
-                                <xs:element type="xs:string" name="imie"/>
-                                <xs:element type="xs:string" name="nazwisko"/>
-                                <xs:element type="xs:string" name="stanowisko"/>
-                              </xs:sequence>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                        <xs:attribute type="xs:string" name="plec" use="optional"/>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="produkty">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="produkt" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="nazwa"/>
-                    <xs:element name="cena">
-                      <xs:complexType>
-                      <xs:simpleContent>
-                      <xs:extension base="xs:byte">
-			                <xs:attribute name="waluta" use="optional"/>
-                            </xs:extension>
-                       </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="waga">
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:byte">
-                            <xs:attribute type="xs:string" name="jednostka" use="optional"/>
-                            <xs:attribute type="xs:string" name="opakowanie" use="optional"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="rodzaj" use="optional"/>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="rodzaj" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:string">
-                      <xs:attribute type="xs:string" name="kod" use="optional"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="jednostka" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:string">
-                      <xs:attribute type="xs:string" name="kod" use="optional"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="warzywniak" type="warzywniakType"/>
+  
+  <xs:complexType name="warzywniakType">
+    <xs:sequence>
+      <xs:element type="sklepType" name="sklep"/>
+      <xs:element type="produktyType" name="produkty"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="sklepType">
+    <xs:sequence>
+      <xs:element type="adresType" name="adres"/>
+      <xs:element type="pracownicyType" name="pracownicy"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="adresType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="miejscowosc"/>
+      <xs:element type="xs:string" name="ulica"/>
+      <xs:element type="xs:string" name="numer_budynku"/>
+      <xs:element type="xs:string" name="kod_pocztowy"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="pracownicyType">
+    <xs:sequence>
+      <xs:element type="pracownikType" name="pracownik" maxOccurs="unbounded" minOccurs="3"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="pracownikType">
+    <xs:sequence>
+      <xs:element type="daneType" name="dane"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="plec" use="required"/>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="daneType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="imie"/>
+      <xs:element type="xs:string" name="nazwisko"/>
+      <xs:element type="xs:string" name="stanowisko"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+
+
+  
+  <xs:complexType name="produktyType">
+    <xs:sequence>
+      <xs:element type="produktType" name="produkt" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="rodzajType" name="rodzaj" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="jednostkaType" name="jednostka" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="produktType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nazwa"/>
+      <xs:element type="cenaType" name="cena"/>
+      <xs:element type="wagaType" name="waga"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="rodzaj" use="optional"/>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="cenaType">
+    <xs:simpleContent>
+      <xs:extension base="xs:byte">
+        <xs:attribute type="xs:string" name="waluta" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="wagaType">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute type="xs:string" name="jednostka" use="optional"/>
+        <xs:attribute type="xs:string" name="opakowanie" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+
+  <xs:complexType name="rodzajType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="kod" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="jednostkaType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="kod" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+
+
 </xs:schema>
