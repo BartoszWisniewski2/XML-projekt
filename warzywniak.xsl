@@ -3,8 +3,9 @@
 <xsl:template match="/">
 <html> 
 <body>
-  <h2>Warzywniak</h2>
-  <table border="1">
+  <h2  style="text-align:center">Warzywniak</h2>
+  
+  <table border="1" width="400" align="center">
     <tr bgcolor="#9acd32">
       <th style="text-align:center" colspan="2">Adres</th>
     </tr>
@@ -25,7 +26,8 @@
       <td><xsl:value-of select="warzywniak/sklep/adres/kod_pocztowy"/></td>
     </tr>
   	</table>
-    <table border="1">
+  	
+    <table border="1" width="400" align="center">
     <tr bgcolor="#9acd32">
       <th style="text-align:center" colspan="3">Pracownicy</th>
     </tr>
@@ -42,6 +44,25 @@
     </tr>
     </xsl:for-each>
   </table>
+  
+      <table border="1" width="400" align="center">
+    <tr bgcolor="#9acd32">
+      <th style="text-align:center" colspan="3">Produkty</th>
+    </tr>
+    <tr>
+      <td>Nazwa</td>
+      <td>Cena</td>
+      <td>Ilość</td>
+    </tr>
+    <xsl:for-each select="warzywniak/produkty/produkt">
+    <tr>
+		<td><xsl:value-of select="nazwa"/></td>
+		<td><xsl:value-of select="cena"/><xsl:value-of select="cena/@waluta"/></td>
+		<td><xsl:value-of select="waga"/><xsl:value-of select="waga/@jednostka"/></td>
+    </tr>
+    </xsl:for-each>
+  </table>
+  
 </body>
 </html>
 </xsl:template>
