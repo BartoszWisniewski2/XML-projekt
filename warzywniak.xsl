@@ -82,17 +82,19 @@
 						<td>Ilość</td>
 					</tr>
 					<xsl:for-each select="warzywniak/produkty/produkt">
+					 <xsl:sort select="nazwa"/>
 						<tr>
 							<td>
 								<xsl:value-of select="nazwa" />
 							</td>
-
+						
 							<xsl:choose>
-								<xsl:when test="cena &lt; 5">
+								<xsl:when test="cena/@waluta='eur'">
 									<td bgcolor="red" style="font-weight:bold;">
-										<xsl:value-of select="cena" />
+									<xsl:variable name="cena" select="4 *./cena" />
+									<xsl:value-of select="$cena" />
 											<xsl:text> </xsl:text>
-										<xsl:value-of select="cena/@waluta" />
+										<xsl:text>pln</xsl:text>
 									</td>
 								</xsl:when>
 								<xsl:otherwise>
