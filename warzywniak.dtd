@@ -7,7 +7,7 @@
 
 
 <!ELEMENT sklep 	(adres, pracownicy)>
-<!ELEMENT produkty 	(%prod)>
+<!ELEMENT produkty 	(%prod;)>
 
 <!ELEMENT adres	(%adr;)>
 <!ELEMENT pracownicy (pracownik+)>
